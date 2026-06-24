@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import videoAsset from "@/assets/paper-boat.mp4.asset.json";
-import audioAsset from "@/assets/paper-boat-drift.mp3.asset.json";
+
+const VIDEO_URL = "/paper-boat.mp4";
+const AUDIO_URL = "/paper-boat-drift.mp3";
 
 const SCROLL_VH = 500;
 
@@ -289,7 +290,7 @@ export function PaperBoatExperience() {
       <div className="fixed inset-0 z-0 overflow-hidden bg-black">
         <video
           ref={videoRef}
-          src={videoAsset.url}
+          src={VIDEO_URL}
           muted
           playsInline
           preload="auto"
@@ -333,7 +334,7 @@ export function PaperBoatExperience() {
       </div>
 
       {/* Audio (continuous, scroll-independent) */}
-      <audio ref={audioRef} src={audioAsset.url} preload="auto" />
+      <audio ref={audioRef} src={AUDIO_URL} preload="auto" />
 
       {/* Mute button */}
       {started && (
